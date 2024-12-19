@@ -37,16 +37,6 @@ This project involves the development of a cloud-based chatbot designed to handl
   - Python  
   - Flask (for backend development)  
 
-## Project Requirements and Scoring  
-| **Requirement**                        | **Points** |  
-|----------------------------------------|------------|  
-| Interactive Chatbot System             | 3          |  
-| Student Inquiry List                   | 1          |  
-| Response to Student Queries            | 4          |  
-| Chatbot Conclusion                     | 1          |  
-| Submission URL                         | 1          |  
-
-**Total Points:** 10  
 
 ## Deployment Steps  
 1. Clone this repository:  
