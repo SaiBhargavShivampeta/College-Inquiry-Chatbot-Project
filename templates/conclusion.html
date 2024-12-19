@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot Conclusion</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: rgb(210, 227, 223);
+            color: #080808;
+            margin-left: 2cm;
+            margin-top: 3cm;
+        }
+
+        .navbar-brand {
+            color: #0f0f0f !important;
+        }
+
+        li, p {
+            color: #080808;
+        }
+
+        p{
+            font-size: 0.6cm;
+        }
+
+        li{
+            font-size: 0.45cm;
+        }
+
+        /* Flexbox Layout */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .text-section {
+            flex: 1;
+        }
+
+        .image-section {
+            flex: 1;
+            text-align: center;
+        }
+
+        .image-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            height: 10cm;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Text Section -->
+        <div class="text-section">
+            <h1 class="text" style="color: black;">Thank You</h1> <br>
+            <p><strong>Your Details:</strong></p>
+            <ul>
+                <li>First Name: {{ user_first_name }}</li>
+                <li>Last Name: {{ user_last_name }}</li>
+                <li>Email Address: {{ user_email }}</li>
+            </ul>
+            <p><strong>Chatbot Creator's Information:</strong></p>
+            <ul>
+                <li>First Name: Sai Bhargav</li>
+                <li>Last Name: Shivampeta</li>
+                <li>Email Address: shivamsv@mail.uc.edu</li>
+            </ul>
+        </div>
+
+        <!-- Image Section -->
+        <div class="image-section">
+            <img src="https://logos-world.net/wp-content/uploads/2020/07/Cincinnati-Bearcats-Logo.jpg" alt="Cincinnati Bearcats Logo">
+        </div>
+    </div>
+
+</body>
+</html>

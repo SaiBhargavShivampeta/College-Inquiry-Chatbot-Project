@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot Chat</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Dialogflow Messenger -->
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <style>
+        body {
+background-color: rgb(243, 254, 251);
+       
+        }
+        .navbar {
+            background-color: #000000; /* Black */
+        }
+        .navbar-brand {
+            color: #FFFFFF !important;
+        }
+        df-messenger {
+            --df-messenger-bot-message: #000000; /* Bot message background color */
+            --df-messenger-button-titlebar-color: #000000; /* Title bar color */
+            --df-messenger-chat-background-color: #FFFFFF; /* Chat background color */
+            --df-messenger-font-color: #FFFFFF; /* Font color */
+            --df-messenger-send-icon: #E00122; /* Send icon color */
+            --df-messenger-user-message: #E00122; /* User message background color */
+            --df-messenger-user-message-font-color: #FFFFFF; /* User message text color */
+            --df-messenger-bot-message-font-color: #FFFFFF; /* Bot message text color */
+            --df-messenger-input-box-color: #FFFFFF; /* Input box background color */
+            --df-messenger-input-font-color: #000000; /* Input box text color */
+            --df-messenger-input-placeholder-font-color: #666666; /* Input placeholder color */
+        }
+        /* Custom CSS to override message text colors */
+        df-messenger .chat-wrapper .message-list .user-message .message {
+            color: var(--df-messenger-user-message-font-color) !important;
+        }
+        df-messenger .chat-wrapper .message-list .bot-message .message {
+            color: var(--df-messenger-bot-message-font-color) !important;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        h2, p, li {
+            color: black; 
+        }
+        p{
+            font-size: 0.5cm;
+            text-align: justify;
+        }
+  .text-center{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: 700;
+    font-size: 1cm;
+    
+  }
+       
+    </style>
+    
+</head>
+<body>
+   
+    <div class="container">
+        
+      <b>  <h2 class="text-center">Welcome to UC Chatbot !</h2><br> </b>
+       
+        <p>The UC Chatbot is a cutting-edge virtual assistant designed to provide instant support and guidance to users. Whether you have questions about admissions, course details, fee structures, or campus facilities, the chatbot is here to help 24/7. Built with advanced AI technology, it offers quick, accurate responses to ensure a seamless user experience. The UC Chatbot not only simplifies your inquiries but also serves as a gateway to explore all that UC has to offer. Engage with it today and discover how it can make your journey with UC smooth and hassle-free!</p>
+       <br>
+       <h5 class="questions">Ask questions like:</h5>
+      
+        <ul style="font-size: 0.45cm;">
+            <li>Football team</li>
+            <li>Computer Science major</li>
+            <li>In-state tuition</li>
+            <li>On-campus housing</li>
+
+        </ul>
+        <br>
+        <p class="text">Enter <b>"Good Bye"</b> to end the conversation.</p>
+        <!-- Dialogflow Messenger -->
+        <df-messenger
+            intent="WELCOME"
+            chat-title="UC Chatbot"
+            agent-id="51fd18a1-b588-4430-90ba-e895fe9c8bf1"
+            language-code="en"
+        ></df-messenger>
+        <!-- Hidden form to pass user data to conclusion -->
+        <form id="conclusion-form" method="GET" action="/conclusion">
+            <input type="hidden" name="first_name" value="{{ first_name }}">
+            <input type="hidden" name="last_name" value="{{ last_name }}">
+            <input type="hidden" name="email" value="{{ email }}">
+        </form>
+    </div>
+
+    <!-- Script to detect end of conversation -->
+    <script>
+        const dfMessenger = document.querySelector('df-messenger');
+        dfMessenger.addEventListener('df-response-received', function(event) {
+            const messages = event.detail.response.queryResult.fulfillmentText;
+            if (messages.includes('Thank you for chatting')) {
+                document.getElementById('conclusion-form').submit();
+            }
+        });
+    </script>
+   
+</body>
+</html>

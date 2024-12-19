@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UC Chatbot</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Tangeman_Center_UofC_2017.jpg/1280px-Tangeman_Center_UofC_2017.jpg"); /* Replace with your image URL */
+            background-size: cover; /* Ensure the image covers the entire background */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent tiling */
+            color: #FFFFFF; /* White text for contrast */
+            height: 100vh; /* Make it cover the full height */
+            margin: 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black; /* Black navbar background */
+            padding: 10px;
+            height: 3cm;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            font-size: 3rem; /* Adjust font size */
+            text-decoration: none;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: #f1eeee !important;
+            
+        }
+
+        .navbar-brand img {
+            height: 50px; /* Adjust logo size */
+            margin-right: 10px; /* Add spacing between logo and text */
+        }
+
+        .card {
+            margin: 0 auto; /* Center the container */
+            max-width: 400px; /* Limit the width */
+            margin-top: 2cm;
+            padding: 20px; /* Reduce padding inside the card */
+            background-color: rgb(200, 218, 213);
+            border-radius: 20px;
+        }
+
+        h2 {
+            font-size: 1.5rem; /* Smaller heading */
+            color: rgb(3, 3, 3);
+            text-align: center;
+        }
+
+        .btn-custom {
+            background-color: #fd0808; /* Black */
+            color: #fcfafa;
+            border-radius: 10px;
+            max-width: 5cm;
+        }
+
+        .btn-custom:hover {
+            color: white;
+        }
+
+        label {
+            color: black; /* Black */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">
+            <img style="height: 2cm; border-radius: 10px;" src="https://d2jyir0m79gs60.cloudfront.net/college/logos/University_of_Cincinnati.jpg"> <!-- Replace with your logo URL -->
+            University of Cincinnati
+        </a>
+    </nav>
+    <div class="container">
+        <div class="card">
+            <h2>Enter your details to continue:</h2><br>
+              <form method="POST" action="/">
+                <div class="form-group">
+                    <label for="first_name">First Name</label>
+                    <input type="text" class="form-control" id="first_name" name="first_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+          <center>    <button type="submit" class="btn btn-custom btn-block">Start Chatting</button> </center>  
+            </form>
+
+        </div>
+    </div>
+</body>
+</html>
